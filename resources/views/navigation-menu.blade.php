@@ -22,26 +22,67 @@
                     </x-nav-link>
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link href="{{ route('crops.index') }}" :active="request()->routeIs('crops.index')">
-                        {{ __('Crops') }}
+                    <x-dropdown align="right" width="48">
+                        <x-slot name="trigger">
+                            <x-nav-link :active="request()->routeIs('crops.index')">
+                                {{ __('Crop Management') }}
+                                <svg class="ml-2 -mr-0.5 h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                                </svg>
+                            </x-nav-link>
+                        </x-slot>
+                        <x-slot name="content">
+                            <x-dropdown-link href="{{ route('crops.index') }}" :active="request()->routeIs('crops.index')">
+                                {{ __('Crop Types') }}
+                            </x-dropdown-link>
+                            <x-dropdown-link href="{{ route('crop-inputs.index') }}" :active="request()->routeIs('cropinput.index')">
+                                {{ __('Crop Store Input') }}
+                            </x-dropdown-link>
+                            <x-dropdown-link href="{{ route('crop-outputs.index') }}" :active="request()->routeIs('cropoutput.index')">
+                                {{ __('Crop Store Output') }}
+                            </x-dropdown-link>
+                            <x-dropdown-link href="{{ route('crop-balances.index') }}" :active="request()->routeIs('crop-balances.index')">
+                                {{ __('Crop Inventory') }}
+                            </x-dropdown-link>
+                        </x-slot>
+                    </x-dropdown>
+                </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <!-- Fertilizer Management Dropdown -->
+                    <x-dropdown align="right" width="48">
+                        <x-slot name="trigger">
+                            <x-nav-link :active="request()->routeIs('fertilizers.index') || request()->routeIs('incoming_fertilizers.index')">
+                                {{ __('Fertilizer Management') }}
+                                <svg class="ml-2 -mr-0.5 h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                                </svg>
+                            </x-nav-link>
+                        </x-slot>
+                        <x-slot name="content">
+                            <x-dropdown-link href="{{ route('fertilizers.index') }}" :active="request()->routeIs('fertilizers.index')">
+                                {{ __('Fertilizers') }}
+                            </x-dropdown-link>
+                            <x-dropdown-link href="{{ route('incoming_fertilizers.index') }}" :active="request()->routeIs('incoming_fertilizers.index')">
+                                {{ __('Incoming Fertilizers') }}
+                            </x-dropdown-link>
+                            <x-dropdown-link href="{{ route('outgoing-fertilizers.index') }}" :active="request()->routeIs('outgoing-fertilizers.index')">
+                                {{ __('Outgoing Fertilizers') }}
+                            </x-dropdown-link>
+                        </x-slot>
+                    </x-dropdown>
+                </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link href="{{ route('equipment.index') }}" :active="request()->routeIs('equipment.index')">
+                        {{ __('Equipment') }}
                     </x-nav-link>
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link href="{{ route('crop-inputs.index') }}" :active="request()->routeIs('cropinput.index')">
-                        {{ __('Crop Input') }}
-                    </x-nav-link>
-                </div>
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link href="{{ route('crop-outputs.index') }}" :active="request()->routeIs('cropoutput.index')">
-                        {{ __('Crop Output') }}
-                    </x-nav-link>
-                </div>
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link href="{{ route('crop-differences.index') }}" :active="request()->routeIs('crop-differences.index')">
-                        {{ __('Crop Inventory') }}
+                    <x-nav-link href="{{ route('livestock.index') }}" :active="request()->routeIs('livestock.index')">
+                        {{ __('Livestock') }}
                     </x-nav-link>
                 </div>
                 
+                  
             </div>
 
             <div class="hidden sm:flex sm:items-center sm:ml-6">

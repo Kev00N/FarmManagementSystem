@@ -15,9 +15,9 @@ class CropInputController extends Controller
 
     public function create()
     {
-        return view('crop-inputs.create');
+        $crops = \App\Models\Crop::all();
+        return view('crop-inputs.create', compact('crops'));
     }
-
     public function store(Request $request)
     {
         $validatedData = $request->validate([
@@ -39,8 +39,8 @@ class CropInputController extends Controller
 
     public function edit($id)
     {
-        $cropInput = CropInput::findOrFail($id);
-        return view('crop-inputs.edit', compact('cropInput'));
+        $crops = \App\Models\Crop::all();
+        return view('crop-inputs.create', compact('crops'));
     }
 
     public function update(Request $request, $id)

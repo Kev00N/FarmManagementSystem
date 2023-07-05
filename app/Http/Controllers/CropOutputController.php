@@ -15,7 +15,8 @@ class CropOutputController extends Controller
 
     public function create()
     {
-        return view('crop-outputs.create');
+        $crops = \App\Models\Crop::all();
+        return view('crop-outputs.create', compact('crops'));
     }
 
     public function store(Request $request)
@@ -35,7 +36,8 @@ class CropOutputController extends Controller
 
     public function edit(CropOutput $cropOutput)
     {
-        return view('crop-outputs.edit', compact('cropOutput'));
+        $crops = \App\Models\Crop::all();
+        return view('crop-outputs.edit', compact('cropOutput', 'crops'));
     }
 
     public function update(Request $request, CropOutput $cropOutput)

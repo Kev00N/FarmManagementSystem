@@ -19,12 +19,5 @@ class CropOutput extends Model
         return $this->crop->crop_name;
     }
 
-    public static function getTotalOutputByCrop()
-    {
-        return static::query()
-            ->select('crop_id', DB::raw('SUM(amount_in_sacs) as total_output'))
-            ->groupBy('crop_id')
-            ->get()
-            ->pluck('total_output', 'crop_id');
-    }
+    
 }
